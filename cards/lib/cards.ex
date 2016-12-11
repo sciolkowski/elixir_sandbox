@@ -1,11 +1,11 @@
 defmodule Cards do
 
   def create_deck do
-    values = ["Ace", "Two", "Three", "Four", "Five"]
-    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
+    values = ["As", "Król", "Dama", "Walet", "Dziesiątka"]
+    suits = ["Trefl", "Pik", "Karo", "Kier"]
 
     for suit <- suits, value <- values do
-      "#{value} of #{suit}"
+      "#{value} #{suit}"
     end
   end
 
@@ -31,6 +31,12 @@ defmodule Cards do
       {:ok, binary} -> :erlang.binary_to_term binary
       {:error, _reason} -> "That file does not exist"
     end
+  end
+
+  def create_hand(hand_size) do
+    Cards.create_deck
+    |> Cards.shuffle
+    |> Cards.deal(hand_size)
   end
 
 end
