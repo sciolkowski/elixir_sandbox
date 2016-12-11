@@ -1,6 +1,6 @@
 # Identicon
 
-**TODO: Add description**
+**Creates identicons based on given string**
 
 ## Installation
 
@@ -21,4 +21,3 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
       [applications: [:identicon]]
     end
     ```
-
