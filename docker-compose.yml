@@ -1,6 +1,14 @@
 version: '2'
 services:
-    elixir:
-        build: .
-        volumes:
-          - .:/home/docker/udemy_elixir
+  elixir:
+    build: .
+    volumes:
+      - .:/home/docker/udemy_elixir
+  postgres:
+   image: postgres:9.6.1
+   hostname: postgres
+   environment:
+     POSTGRES_USER: phoenix
+     POSTGRES_PASSWORD: phoenix
+   volumes:
+     - ./dockerdata/postgres/data:/var/lib/postgresql/data
