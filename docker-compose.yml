@@ -4,11 +4,18 @@ services:
     build: .
     volumes:
       - .:/home/docker/udemy_elixir
+    command: bash -c "cd discuss && mix local.hex --force && mix phoenix.server"
+    ports:
+      - "4000:4000"
+    depends_on:
+      - postgres  
   postgres:
    image: postgres:9.6.1
-   hostname: postgres
+   ports:
+    - "5432:5432"
    environment:
-     POSTGRES_USER: phoenix
-     POSTGRES_PASSWORD: phoenix
+     POSTGRES_USER: discuss
+     POSTGRES_PASSWORD: discuss
+     POSTGRES_DB: discuss_dev
    volumes:
-     - ./dockerdata/postgres/data:/var/lib/postgresql/data
+     - ./dockerdata/postgresql:/var/lib/postgresql
