@@ -15,3 +15,8 @@ Simple console app to get familiar with basic Elixir features. Run `iex -S mix` 
 Simple console app to generate identicons based on given string. To use go to `identicon` folder, run iex (`iex -S mix`) and then create new PNG files by running ```Identicon.main("your string")```
 
 Files will be saved in current folder, enjoy :)
+
+
+### Discuss
+
+Phoenix Framework app. Starts automatically with docker-compose, and is accessible at `http://localhost:4000`
