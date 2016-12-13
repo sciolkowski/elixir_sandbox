@@ -8,14 +8,18 @@ services:
     ports:
       - "4000:4000"
     depends_on:
-      - postgres  
+      - postgres
   postgres:
    image: postgres:9.6.1
-   ports:
-    - "5432:5432"
    environment:
      POSTGRES_USER: discuss
      POSTGRES_PASSWORD: discuss
      POSTGRES_DB: discuss_dev
    volumes:
      - ./dockerdata/postgresql:/var/lib/postgresql
+  pgadmin:
+    image: fenglc/pgadmin4:1.1
+    ports:
+      - "5050:5050"
+    depends_on:
+      - postgres
