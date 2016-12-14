@@ -3,6 +3,12 @@ defmodule Discuss.TopicController do
   # With alias we do not have to type whole Discuss.Topic everytime, only Topic.
   alias Discuss.Topic
 
+  def index(conn, _params) do
+    topics = Repo.all(Topic)
+
+    render conn, "index.html", topics: topics
+  end
+
   def new(conn, _params) do
     # The `conn` struct is a total focal point of how Phoenix works.
     # It comes with request, and then is passed from function to function
