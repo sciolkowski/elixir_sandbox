@@ -17,10 +17,12 @@ defmodule Discuss.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", TopicController, :index
-    get "/topics/new", TopicController, :new
-    post "/topics/new", TopicController, :create
-    get "/topics/:id/edit", TopicController, :edit
-    put "/topics/:id", TopicController, :update
+    # get "/topics/new", TopicController, :new
+    # post "/topics/new", TopicController, :create
+    # get "/topics/:id/edit", TopicController, :edit
+    # put "/topics/:id", TopicController, :update
+    # all above routes are standard REST, so we can just use:
+    resources "/topics", TopicController
   end
 
   # Other scopes may use custom stacks.
