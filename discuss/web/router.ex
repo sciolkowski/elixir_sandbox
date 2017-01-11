@@ -25,12 +25,12 @@ defmodule Discuss.Router do
     resources "/topics", TopicController
   end
 
-  scope '/auth', Discuss do
+  scope "/auth", Discuss do
     pipe_through :browser
 
     # request function is defined in Ueberauth, and it retrieves provider from params
-    get '/:provider', AuthController, :request
-    get '/:provider/callback', AuthController, :callback
+    get "/:provider", AuthController, :request
+    get "/:provider/callback", AuthController, :callback
   end
 
   # Other scopes may use custom stacks.
