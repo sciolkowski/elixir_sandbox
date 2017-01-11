@@ -4,7 +4,7 @@ services:
     build: .
     volumes:
       - .:/home/docker/udemy_elixir
-    command: bash -c "cd discuss && mix local.hex --force && mix phoenix.server"
+    command: bash -c "cd discuss && mix local.hex --force && mix deps.get && mix phoenix.server"
     ports:
       - "4000:4000"
     depends_on:
