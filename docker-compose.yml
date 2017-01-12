@@ -5,6 +5,8 @@ services:
     volumes:
       - .:/home/docker/udemy_elixir
     command: bash -c "cd discuss && mix local.hex --force && mix deps.get && mix phoenix.server"
+    env_file:
+      - .env
     ports:
       - "4000:4000"
     depends_on:
