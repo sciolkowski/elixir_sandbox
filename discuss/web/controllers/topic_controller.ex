@@ -3,6 +3,8 @@ defmodule Discuss.TopicController do
   # With alias we do not have to type whole Discuss.Topic everytime, only Topic.
   alias Discuss.Topic
 
+  plug Discuss.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
+
   def index(conn, _params) do
     topics = Repo.all(Topic)
     render conn, "index.html", topics: topics
