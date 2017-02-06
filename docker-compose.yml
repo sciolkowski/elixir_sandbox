@@ -1,6 +1,6 @@
 version: '2'
 services:
-  elixir:
+  app:
     build: .
     volumes:
       - .:/home/docker/udemy_elixir
