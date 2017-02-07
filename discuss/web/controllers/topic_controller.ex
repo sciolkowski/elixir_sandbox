@@ -11,6 +11,11 @@ defmodule Discuss.TopicController do
     render conn, "index.html", topics: topics
   end
 
+  def show(conn, %{"id" => topic_id} = params) do
+    topic = Repo.get!(Topic, topic_id)
+    render conn, "show.html", topic: topic
+  end
+
   def new(conn, _params) do
     # The `conn` struct is a total focal point of how Phoenix works.
     # It comes with request, and then is passed from function to function
@@ -35,7 +40,7 @@ defmodule Discuss.TopicController do
   end
 
   def edit(conn, %{"id" => topic_id} = params) do
-    topic = Repo.get(Topic, topic_id)
+    topic = Repo.get!(Topic, topic_id)
     changeset = Topic.changeset(topic)
 
     render conn, "edit.html", changeset: changeset, topic: topic
